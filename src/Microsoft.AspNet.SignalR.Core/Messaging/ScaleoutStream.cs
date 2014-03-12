@@ -242,6 +242,8 @@ namespace Microsoft.AspNet.SignalR.Messaging
 
         private void EnsureQueueStarted()
         {
+            _initialTaskCompletionSource.TrySetResult(null);
+
             if (_taskCompletionSource != null)
             {
                 _taskCompletionSource.TrySetResult(null);
